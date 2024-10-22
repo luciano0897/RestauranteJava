@@ -114,6 +114,36 @@ public class TelaFuncionario extends JFrame{
                 JOptionPane.showMessageDialog(null, historico.toString());
             }
         });
+     // Adicionando data de validade e lote
+        JLabel lblValidade = new JLabel("Data de Validade:");
+        lblValidade.setBounds(50, 110, 150, 30);
+        panel.add(lblValidade);
+
+        JTextField txtValidade = new JTextField();
+        txtValidade.setBounds(200, 110, 150, 30);
+        panel.add(txtValidade);
+
+        JLabel lblLote = new JLabel("Lote:");
+        lblLote.setBounds(50, 150, 150, 30);
+        panel.add(lblLote);
+
+        JTextField txtLote = new JTextField();
+        txtLote.setBounds(200, 150, 150, 30);
+        panel.add(txtLote);
+
+        btnCadastrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nome = txtNomeProduto.getText();
+                double preco = Double.parseDouble(txtPrecoProduto.getText());
+                String validade = txtValidade.getText();
+                String lote = txtLote.getText();
+                Produto produto = new Produto(produtos.size() + 1, nome, preco, 100);  // estoque fixo para exemplo
+                produtos.add(produto);
+                comboProdutos.addItem(nome);
+                JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
+            }
+        });
 
         add(panel);
 	}

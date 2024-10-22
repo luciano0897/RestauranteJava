@@ -9,8 +9,8 @@ public class TelaDono extends JFrame{
 	
 	private ArrayList<Venda> vendas;
 	
-	public TelaDono(ArrayList<Venda> vendas) {
-		this.vendas = vendas;
+	public TelaDono() {
+		this.vendas = (vendas != null) ? vendas : new ArrayList<>();
 
 	setTitle("Restaurante Barriga Cheia - Teala do Dono");
 	setSize(400, 300);
